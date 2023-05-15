@@ -24,7 +24,7 @@ void  write_in_file(){
 	cout<<"\n" ;
 	cout<<"****write****\n" ;
 	char c ;
-	ofstream outfile("my-file.txt") ;
+	ofstream outfile("path") ;
 	Student s1 ;
 	
 	start:
@@ -54,7 +54,7 @@ void get_fch_fstring(){
 	cout<<"****get_fch_fstring****\n" ;
 		char string[10] , ch ;
 	ifstream infile ;
-	infile.open("my-file.txt",ios::in) ;
+	infile.open("path",ios::in) ;
 	int k ;
 	cout<<"if you want to get the first charecter press (1)\nif you want to get the first word press (2)\n" ;
 	cin>>k ;
@@ -76,7 +76,7 @@ void read_from_file(){
 
     Student s1;
     ifstream infile ;
-    infile.open("my-file.txt",ios::in) ;
+    infile.open("path",ios::in) ;
      
     if(infile.is_open())
     {
@@ -132,8 +132,8 @@ void search(){
 }
 void copy(){
 	char ch ;
-	ofstream outfile("copy-file.txt") ;
-	ifstream infile("my-file.txt") ;
+	ofstream outfile("path") ;
+	ifstream infile("mpath") ;
 	
 	while(infile.get(ch)){
 		outfile.put(ch) ;
@@ -148,7 +148,7 @@ void copy(){
 void length(){
 	char ch;
 	ifstream infile;
-	infile.open("my-file.txt",ios::in);
+	infile.open("path",ios::in);
 	if(infile.is_open()){
 	
 	infile.seekg(0,ios::end);
@@ -162,7 +162,7 @@ void update (){
 	
 Student s;
 char str[10];
-fstream allFile("my-file.txt", ios::in|ios::out);
+fstream allFile("path", ios::in|ios::out);
 cout << "Enter the name you want to update its record ";
  cin >> str;
  
@@ -197,8 +197,8 @@ void delete_record(){
 	Student s;
 	int id=0;
 	char str[10];
-	ifstream infile("my_file.txt",ios::in);
-	ofstream Temp("temp.txt",ios::out);
+	ifstream infile("path",ios::in);
+	ofstream Temp("path",ios::out);
 	if(infile.is_open()){
 		while(!infile.eof()){
 			infile.read((char*)&s, sizeof(s));
@@ -209,8 +209,8 @@ void delete_record(){
 		}
 		infile.close();
 		Temp.close();
-		remove("my-file.txt");
-		rename("temp.txt","my file.txt");
+		remove("path");
+		rename("path","path");
 	}
 }
 int main(){
@@ -224,7 +224,6 @@ int main(){
 	cout<<"length                                (5)\n" ;
 	cout<<"update the file                       (6)\n" ;
 	cout<<"delete a record from the file         (7)\n" ;
-//	cout<<"to get the first character or the first word  from the file press 3\n" ;
 	int x ;
 	cin>> x ;
 	switch(x) {
